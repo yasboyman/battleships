@@ -3,7 +3,7 @@ import reactLogo from "./assets/react.svg";
 import "./App.css";
 import GridBox from "./components/gridBox/gridBox";
 import gridBox from "./components/gridBox/gridBox";
-import {createGrid} from "./components/utils/utils";
+import { createGrid } from "./components/utils/utils";
 
 const App = () => {
   const [count, setCount] = useState(0);
@@ -13,16 +13,15 @@ const App = () => {
     isPlayerActive: false,
     shipLocations: [],
   });
-    const [computer, setComputer] = useState({
-        name: "computer",
-        grid: createGrid(),
-        isPlayerActive: false,
-        shipLocations: [],
-    });
+  const [computer, setComputer] = useState({
+    name: "computer",
+    grid: createGrid(),
+    isPlayerActive: false,
+    shipLocations: [],
+  });
 
   useEffect(() => {
-
-   console.log('rendered')
+    console.log("rendered");
   }, []);
 
   return (
@@ -32,19 +31,14 @@ const App = () => {
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
-          <section>
-              <h2>{player1.name}</h2>
-              <div className="grid-board">
-                  {player1.grid}
-              </div>
-          </section>
-          <section>
-              <h2>{computer.name}</h2>
-              <div className="grid-board">
-                  {computer.grid}
-              </div>
-          </section>
-
+        <section>
+          <h2>{player1.name}</h2>
+          <div className="grid-board">{player1.grid}</div>
+        </section>
+        <section>
+          <h2>{computer.name}</h2>
+          <div className="grid-board">{computer.grid}</div>
+        </section>
       </div>
     </div>
   );
