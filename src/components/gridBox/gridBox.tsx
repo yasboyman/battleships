@@ -1,10 +1,16 @@
 import React from 'react';
+import './gridBox.css'
 
-const GridBox = ({number}: any) => {
+type gridBoxPropTypes = {
+    label?: string,
+    color?: string,
+}
+
+const GridBox = ({label, color}: gridBoxPropTypes) => {
     return (
-        <div style={{ width: '20px', height:'20px'}}>
-            {number}
-        </div>
+        <button className="grid-box" style={{ backgroundColor: color}}>
+            {label}
+        </button>
     );
 };
 
