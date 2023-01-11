@@ -5,7 +5,9 @@ interface PlayerType {
   name: string;
   grid: number[][];
   isPlayerActive: boolean;
+  isPlayerReady: boolean
   shipLocations: number[][];
+  shipArray: number[]
 }
 
 interface StateType {
@@ -31,14 +33,19 @@ const initialState: StateType = {
   player: {
     name: "player 1",
     grid: createGrid(),
+    isPlayerReady: false,
     isPlayerActive: false,
-    shipLocations: []
+    shipLocations: [],
+    shipArray: [2, 3, 4, 5, 6, 7]
   },
   computer: {
     name: "computer",
     grid: createGrid(),
+    isPlayerReady: false,
     isPlayerActive: false,
-    shipLocations: []
+    shipLocations: [],
+    shipArray: [2, 3, 4, 5, 6, 7],
+
   }
 };
 
@@ -73,82 +80,3 @@ const GameProvider: React.FC<Props> = ({ children }) => {
 };
 
 export { GameContext, GameProvider };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import React, { createContext, useContext } from 'react';
-// import {createGrid} from "./utils/utils";
-//
-// type PlayerType = {
-//     name: string;
-//     grid: number[][];
-//     isPlayerActive: boolean;
-//     shipLocations: number[][];
-// }
-//
-// type PlayerContextType = {
-//     player: PlayerType;
-//     computer: PlayerType;
-// }
-//
-// const PlayerContext = createContext<PlayerContextType>({
-//     player: {
-//         name: "player 1",
-//         grid: createGrid(),
-//         isPlayerActive: false,
-//         shipLocations: []
-//     },
-//     computer: {
-//         name: "computer",
-//         grid: createGrid(),
-//         isPlayerActive: false,
-//         shipLocations: []
-//     }
-// });
-//
-// const usePlayerContext = () => useContext(PlayerContext);
-// const player = { name: "player 1", grid: createGrid(), isPlayerActive: false, shipLocations: [] };
-//
-// const computer = { name: "computer", grid: createGrid(), isPlayerActive: false, shipLocations: [] };
-//
-// const PlayerProvider = ({ children }: { children: React.ReactNode }) => {
-//     return (
-//         <PlayerContext.Provider value={{ player: player, computer: computer }}>
-//     {children}
-//     </PlayerContext.Provider>
-// );
-// }
-//
-// export { PlayerContext, usePlayerContext };
