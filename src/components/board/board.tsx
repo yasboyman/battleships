@@ -3,7 +3,7 @@ import "./board.module.css";
 
 type boardProps = {
   name: string
-  grid: Function
+  grid: React.ReactNode
   shipArray: number[]
 }
 
