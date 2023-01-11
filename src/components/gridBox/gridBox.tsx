@@ -1,30 +1,35 @@
 import React, { useContext, useState } from "react";
-import './gridBox.css'
-import {GameContext } from "../context";
+import "./gridBox.css";
+import { GameContext } from "../context";
 
 type gridBoxPropTypes = {
-    label?: string,
-    color?: string,
-}
+  label?: string;
+  color?: string;
+};
 
-const GridBox = ({label}: gridBoxPropTypes) => {
-const [color, setColor] = useState('whitesmoke');
+const GridBox = ({ label }: gridBoxPropTypes) => {
+  const [color, setColor] = useState("whitesmoke");
 
   const [state, dispatch] = useContext(GameContext);
   const { player, computer } = state;
 
-  console.log('this si the player:', player.shipLocations)
+  console.log("this is the player obj", player);
 
-    const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-     setColor('red')
-      dispatch('addPlayerShipLocation', e.target.value )
-
-   }
-    return (
-        <button className="grid-box" style={{ backgroundColor: color}} onClick={ (e) =>  handleClick(e)}>
-            {label}
-        </button>
-    );
+  const handleClick = (e) => {
+    console.log(e.target.value)
+    console.log(label)
+    setColor("red");
+    // dispatch({ type: "addPlayerShipLocation", location: e.target.value });
+  };
+  return (
+    <button
+      className="grid-box"
+      style={{ backgroundColor: color }}
+      onClick={(e) => handleClick(e)}
+    >
+      {label}
+    </button>
+  );
 };
 
 export default GridBox;
