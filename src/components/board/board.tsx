@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import "./board.module.css";
+import { GameContext } from "../context";
 
 type boardProps = {
   name: string
@@ -8,10 +9,16 @@ type boardProps = {
 }
 
 const Board = ({ name, grid, shipArray }: boardProps) => {
+  const [state, dispatch] = useContext(GameContext);
+
+  console.log('state', state)
+
   return (
     <div>
       <h2>{name}</h2>
-      <div className="grid-board">{grid}</div>
+      <div className="grid-board">
+        {grid}
+      </div>
       <span>{shipArray}</span>
     </div>
   );

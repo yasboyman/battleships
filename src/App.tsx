@@ -1,39 +1,46 @@
 import { useContext, useEffect, useState } from "react";
 import "./App.css";
-import { GameContext } from "./components/context";
+import { GameContext , GameProvider} from "./components/context";
 import Board from "./components/board/board";
 
 const App = () => {
   const [count, setCount] = useState(0);
 
-  const [state, dispatch] = useContext(GameContext);
-  const { player, computer } = state;
+   const [state, dispatch] = useContext(GameContext);
+
+  useEffect(() => {
+    console.log('state', state)
+  }, []);
+
+  // console.log('state FROM APP', state)
 
   return (
-    <GameContext.Provider value={[state, dispatch]}>
+    <GameProvider >
       <div className="App">
         <h1>React</h1>
         <div className="card">
-          <button onClick={() => setCount((count) => count + 1)}>
+          <button onClick={() => {
+            setCount(count + 1);
+          }}>
             count is {count}
           </button>
           <section className={"playerSection"}>
             <Board
-              name={player.name}
-              grid={player.grid}
-              shipArray={player.shipArray}
+              name={state.player.name}
+              grid={state.player.grid}
+              shipArray={state.player.shipArray}
             />
           </section>
           <section className={"computerSection"}>
             <Board
-              name={computer.name}
-              grid={computer.grid}
-              shipArray={computer.shipArray}
+              name={state.computer.name}
+              grid={state.computer.grid}
+              shipArray={state.computer.shipArray}
             />
           </section>
         </div>
       </div>
-    </GameContext.Provider>
+    </GameProvider >
   );
 };
 export default App;
