@@ -17,7 +17,7 @@ const GridBox = ({ label }: gridBoxPropTypes) => {
     setColor("red");
     dispatch({
       type: "addPlayerShipLocation",
-      payload: { shipLocations: label },
+      payload: label ,
     });
   };
   return (

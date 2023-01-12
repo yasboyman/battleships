@@ -11,7 +11,7 @@ export interface PlayerType {
 
 export type ActionType =
   | { type: 'updatePlayerName'; payload: string }
-  | { type: 'addPlayerShipLocation'; payload: number[] }
+  | { type: 'addPlayerShipLocation'; payload: number[]  }
   | { type: 'removePlayerShipLocation'; payload: number[] }
   | { type: 'updateComputerName'; payload: string }
   | { type: 'addComputerShipLocation'; payload: number[] }
@@ -52,14 +52,14 @@ export const gameReducer = (state: StateType, action: ActionType): StateType => 
     case 'updatePlayerName':
       return {
         ...state,
-        player: { ...state.player, name: payload.name }
+        player: { ...state.player, name: payload }
       };
     case 'addPlayerShipLocation':
       return {
         ...state,
         player: {
           ...state.player,
-          shipLocations: [...state.player.shipLocations, payload.shipLocations]
+          shipLocations: [...state.player.shipLocations, payload]
         }
       };
     default:
