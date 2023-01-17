@@ -10,3 +10,12 @@ export const createGrid = () => {
   }
   return grid;
 };
+
+export const checkNumbers = (previousNumber: number, currentNumber: number) => {
+  const plusOne = previousNumber + 1;
+  const minusOne = previousNumber - 1;
+  const plusTen = previousNumber + 10;
+  const minusTen = previousNumber - 10;
+
+  return [plusOne, minusOne, plusTen, minusTen].includes(currentNumber);
+};

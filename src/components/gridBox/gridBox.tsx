@@ -12,13 +12,19 @@ const GridBox = ({ label }: gridBoxPropTypes) => {
 
   const [state, dispatch] = useContext(GameContext);
 
+
+console.log('thios is the payer,' , state?.player)
+console.log('tstate,' ,state )
   const handleClick = () => {
-    console.log(label);
-    setColor("red");
-    dispatch({
-      type: "addPlayerShipLocation",
-      payload: label ,
-    });
+
+    if(state.player.isPlayerReady === false){
+      console.log(label);
+      setColor("red");
+      dispatch({
+        type: "addPlayerShipLocation",
+        payload: label ,
+      });
+    }
   };
   return (
     <button
