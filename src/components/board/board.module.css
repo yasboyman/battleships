@@ -1,6 +1,17 @@
-.grid-board {
-    display: grid;
-    grid-template-columns: repeat(10, 40px);
-    grid-gap: 0;
-    align-self: flex-start;
+.BoardContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.ShipSelectionContainer {
+  display: flex;
+  flex-direction: column;
+    margin-left: 10px;
+}
+
+.Grid_board {
+  display: grid;
+  grid-template-columns: repeat(10, 40px);
+  grid-gap: 0;
+  align-self: flex-start;
 }

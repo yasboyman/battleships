@@ -1,7 +1,7 @@
-.grid-box {
+.Grid_box {
     border: 1px solid black;
     border-radius: 0;
-    padding: 10px
+    padding: 10px;
 }
 
 /*.grid-box:nth-child(200n + 1):nth-child(-n + 100) {*/
