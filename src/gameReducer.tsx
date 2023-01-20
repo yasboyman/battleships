@@ -6,6 +6,7 @@ export const initialState: StateType = {
     name: "player 1",
     grid: createGrid(),
     isPlayerReady: false,
+    currentActiveShip: null,
     isPlayerActive: false,
     shipLocations: [],
     shipArray: [2, 3, 4, 5, 6, 7],
@@ -14,6 +15,7 @@ export const initialState: StateType = {
     name: "computer",
     grid: createGrid(),
     isPlayerReady: false,
+    currentActiveShip: null,
     isPlayerActive: false,
     shipLocations: [[]],
     shipArray: [2, 3, 4, 5, 6, 7],
@@ -26,10 +28,10 @@ export const gameReducer = (
 ): StateType => {
   const { type, payload } = action;
   switch (type) {
-    case "updatePlayerName":
+    case "SET_ACTIVE_SHIP":
       return {
         ...state,
-        player: { ...state.player, name: payload },
+        player: { ...state.player, currentActiveShip: payload },
       };
     case "ADD_PLAYER_SHIP_LOCATION":
       return {

@@ -1,7 +1,7 @@
 import React from "react";
 
 export type ActionType =
-  | { type: "updatePlayerName"; payload: string }
+  | { type: "SET_ACTIVE_SHIP"; payload: number }
   | {
       type: "ADD_PLAYER_SHIP_LOCATION";
       payload: { shipName: string; location: number[] };
@@ -22,6 +22,7 @@ export interface StateType {
 export interface PlayerType {
   name: string;
   grid: number[][];
+  currentActiveShip: number | null
   isPlayerActive: boolean;
   isPlayerReady: boolean;
   shipLocations: number[][];
