@@ -7,7 +7,8 @@ import { checkNumbers } from "../utils/utils";
 const GridBox = ({ label }: gridBoxPropTypes) => {
   const [color, setColor] = useState("whitesmoke");
 
-  const [state, dispatch] = useContext<[StateType, Dispatch<ActionType>]>(GameContext);
+  const [state, dispatch] =
+    useContext<[StateType, Dispatch<ActionType>]>(GameContext);
 
   let player: PlayerType;
   if ("player" in state) {

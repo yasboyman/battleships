@@ -2,12 +2,14 @@ import React from "react";
 import styles from "./squareStack.module.css";
 
 interface Props {
-  number: number;
+  count: number;
 }
 
-const SquareStack: React.FC<Props> = ({ number }) => {
-  const boxes = [];
-  for (let i = 0; i < number; i++) {
+const SquareStack: React.FC<Props> = ({ count }) => {
+
+  let boxes = [];
+  console.log('boxes', boxes)
+  for (let i = 0; i < count; i++) {
     boxes.push(
       <div key={i} className={styles.Box}
       />
