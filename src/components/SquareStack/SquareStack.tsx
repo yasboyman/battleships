@@ -21,11 +21,7 @@ const SquareStack: React.FC<Props> = ({ count }) => {
       <div key={i} className={styles.Box} onClick={handleSquareClick} />
     );
   }
-  return (
-    <div className={styles.boxContainer} >
-      {boxes}
-    </div>
-  );
+  return <div className={styles.boxContainer}>{boxes}</div>;
 };
 
 export default SquareStack;

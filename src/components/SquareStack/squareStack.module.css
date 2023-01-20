@@ -13,15 +13,22 @@
 }
 
 .boxContainer {
-    /*animation: swing 3s normal ease;*/
+  /*animation: swing 3s normal ease;*/
 }
 
 /*// swing animaition //*/
 /*animation: swing 2s infinite ease;*/
-@keyframes swing
-{
-    0%{ transform: rotate(-10deg);}
-    50%{ transform: rotate(50deg);}
-    0%{ transform: rotate(-10deg);}
-    /*100%{ transform: rotate(-10deg);}*/
+@keyframes swing {
+  0% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(50deg);
+  }
+  0% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: rotate(-10deg);
+  }
 }
