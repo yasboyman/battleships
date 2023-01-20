@@ -6,14 +6,9 @@ interface Props {
 }
 
 const SquareStack: React.FC<Props> = ({ count }) => {
-
   let boxes = [];
-  console.log('boxes', boxes)
   for (let i = 0; i < count; i++) {
-    boxes.push(
-      <div key={i} className={styles.Box}
-      />
-    );
+    boxes.push(<div key={i} className={styles.Box} />);
   }
   return <div>{boxes}</div>;
 };
