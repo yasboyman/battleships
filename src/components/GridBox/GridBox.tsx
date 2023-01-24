@@ -6,6 +6,9 @@ import { checkNumbers } from "../utils/utils";
 
 const GridBox = ({ label }: gridBoxPropTypes) => {
   const [color, setColor] = useState("whitesmoke");
+  const [shipArray, setShipArray] = useState([2,3,4,5,6]);
+  const [hovering, setHovering] = useState(false);
+  const [highlighted, setHighlighted] = useState([]);
 
   const [state, dispatch] =
     useContext<[StateType, Dispatch<ActionType>]>(GameContext);
@@ -14,6 +17,8 @@ const GridBox = ({ label }: gridBoxPropTypes) => {
   if ("player" in state) {
     player = state.player;
   }
+  console.log(highlighted);
+  console.log('hovering', hovering);
 
   const handleClick = () => {
     // @ts-ignore
@@ -22,6 +27,7 @@ const GridBox = ({ label }: gridBoxPropTypes) => {
       const lastNumber = player.shipLocations[lastShip];
       if (state.player.shipLocations.length === 0) {
         setColor("red");
+        setHighlighted([1, 4, 5, 6]);
         dispatch({
           type: "ADD_PLAYER_SHIP_LOCATION",
           payload: {
@@ -31,6 +37,7 @@ const GridBox = ({ label }: gridBoxPropTypes) => {
         });
       } else if (checkNumbers(lastNumber, label)) {
         setColor("red");
+        setHighlighted([1, 2]);
         dispatch({
           type: "ADD_PLAYER_SHIP_LOCATION",
           payload: {
@@ -41,16 +48,30 @@ const GridBox = ({ label }: gridBoxPropTypes) => {
       }
     }
   };
+
+  const handleMouseHover = () => {
+    setHovering(!hovering);
+    if (!hovering) {
+      let newHighlighted = [label];
+      for (let i = 1; i < shipArray[0]; i++) {
+        newHighlighted.push(label + i);
+      }
+      setHighlighted(newHighlighted);
+    } else {
+      setHighlighted([]);
+    }
+  }
+
   return (
     <button
       className={styles.Grid_box}
-      style={{ backgroundColor: color }}
+      style={{ backgroundColor: color, color: highlighted.includes(label) ? 'blue': 'black'}}
       onClick={handleClick}
-      // onMouseOver={handleMouseHover}
+      //   onMouseOver={handleMouseHover}
+      // onMouseLeave={handleMouseHover}
     >
       {label}
     </button>
   );
 };
 
-export default GridBox;
